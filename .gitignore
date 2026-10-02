@@ -1,0 +1,33 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Production build
+dist
+dist-ssr
+
+# Environment variables & local configuration
+*.local
+.env
+.env.*
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor & OS files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+
+# Documentation & Prompts
+SKILLLINKR_OMS_LANDING_PROMPT.md
+SkillLinkr_OMS_Overview_for_Landing_Page.docx
+*.docx
+

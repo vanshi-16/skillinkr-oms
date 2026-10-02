@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+:root {
+  --canvas: #F7F5F1;
+  --surface: #FFFFFF;
+  --surface-sunk: #F1EEE8;
+  --ink: #000000;
+  --ink-2: #000000;
+  --muted: #000000;
+  --line: #E4E0D8;
+  --line-strong: #CFC9BE;
+  --brand-900: #0C2E24;
+  --brand-700: #12513F;
+  --brand-600: #176B52;
+  --brand-100: #E3F0EA;
+  --ok: #15803D;
+  --warn: #B45309;
+  --danger: #B42318;
+
+  --shadow-subtle: 0 1px 2px rgba(11, 18, 32, 0.04), 0 8px 24px -12px rgba(11, 18, 32, 0.10);
+}
+
+@theme {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-sunk: var(--surface-sunk);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-brand-900: var(--brand-900);
+  --color-brand-700: var(--brand-700);
+  --color-brand-600: var(--brand-600);
+  --color-brand-100: var(--brand-100);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-sans: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+html {
+  background-color: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Fluid typography scale */
+.font-display {
+  font-family: "Instrument Serif", Georgia, serif;
+}
+
+.font-mono-label {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.type-h1 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(2.75rem, 6.2vw, 5.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+}
+
+.type-h2 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(2rem, 3.6vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+.type-h3 {
+  font-size: 1.375rem;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.type-body {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  max-width: 68ch;
+  color: var(--ink-2);
+}
+
+.type-small {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.type-caption {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--brand-600);
+  outline-offset: 3px;
+}
+
+/* Card subtle shadow token */
+.card-shadow {
+  box-shadow: var(--shadow-subtle);
+}
+
+/* Marquee gradient fade mask */
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent);
+}
+
+/* Print Stylesheet */
+@media print {
+  nav,
+  .no-print,
+  [aria-hidden="true"] {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+  }
+  a[href^="mailto:"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+  }
+}
+
+/* Respect reduced motion globally */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
